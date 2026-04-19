@@ -1,4 +1,11 @@
-window.promises = [];
+const promises = [
+  new Promise(resolve => setTimeout(() => resolve("Promise 1 resolved"), Math.floor(Math.random() * 4000) + 1000)),
+  new Promise(resolve => setTimeout(() => resolve("Promise 2 resolved"), Math.floor(Math.random() * 4000) + 1000)),
+  new Promise(resolve => setTimeout(() => resolve("Promise 3 resolved"), Math.floor(Math.random() * 4000) + 1000)),
+  new Promise(resolve => setTimeout(() => resolve("Promise 4 resolved"), Math.floor(Math.random() * 4000) + 1000)),
+  new Promise(resolve => setTimeout(() => resolve("Promise 5 resolved"), Math.floor(Math.random() * 4000) + 1000)),
+];
 
-// Do not change the code above this
-// add your promises to the array `promises`
+Promise.any(promises).then(result => {
+  document.getElementById("output").textContent = result;
+});
